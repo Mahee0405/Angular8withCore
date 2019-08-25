@@ -10,12 +10,14 @@ import { NavComponent } from 'src/nav/nav.component';
 import { AuthService } from './_services/auth.service';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
+import { ErrorInterceptor } from './_services/error-interceptor.service';
 
 @NgModule({
    declarations: [
       AppComponent,
       NavComponent,
       HomeComponent,
+      RegisterComponent,
       RegisterComponent
    ],
    imports: [
@@ -24,7 +26,7 @@ import { RegisterComponent } from './register/register.component';
       SharedModule
    ],
    providers: [
-      AuthService
+      AuthService, ErrorInterceptor
    ],
    bootstrap: [
       AppComponent

@@ -19,4 +19,8 @@ export class AuthService {
       })
     );
   }
+
+  register(model: any){
+    return this.httpClinet.post(this.baseUrl + 'register', model);
+  }
 }
