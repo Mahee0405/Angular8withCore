@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { ErrorInterceptorProvider } from './_services/error-interceptor.service';
 import { AlertifyService } from './_services/alertyfy.service';
+import { AuthGuard } from './_guard/auth.guard';
 
 @NgModule({
    declarations: [
@@ -29,7 +30,7 @@ import { AlertifyService } from './_services/alertyfy.service';
       BsDropdownModule.forRoot()
    ],
    providers: [
-      AuthService, ErrorInterceptorProvider, AlertifyService
+      AuthService, ErrorInterceptorProvider, AlertifyService , AuthGuard
    ],
    bootstrap: [
       AppComponent
