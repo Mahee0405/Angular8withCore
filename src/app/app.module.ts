@@ -30,7 +30,7 @@ import { AuthGuard } from './_guard/auth.guard';
       BsDropdownModule.forRoot()
    ],
    providers: [
-      AuthService, ErrorInterceptorProvider, AlertifyService , AuthGuard
+      AuthService, ErrorInterceptorProvider, AlertifyService , AuthGuard,
    ],
    bootstrap: [
       AppComponent
