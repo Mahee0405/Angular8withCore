@@ -21,7 +21,8 @@ export class MemberListComponent implements OnInit {
         this.users = users;
       },
       error => {
-        this.alertify.error(error);
+        //console.log('errortest', error);
+        this.alertify.error(error.statusText);
       }
     );
   }

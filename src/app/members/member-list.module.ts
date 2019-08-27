@@ -7,10 +7,17 @@ import { ListComponent } from './list/list.component';
 import { MessagesComponent } from './messages/messages.component';
 import { UserService } from '../_services/user.service';
 import { MemberCardComponent } from './member-card/member-card.component';
+import { MemberDetailComponent } from './member-detail/member-detail.component';
+import { JwtModule } from '@auth0/angular-jwt';
 
 @NgModule({
-  declarations: [MemberListComponent, ListComponent, MessagesComponent, MemberCardComponent],
-  imports: [SharedModule, MemberListRoutingModule] ,
-  providers: [UserService]
+  declarations: [
+    MemberListComponent,
+    ListComponent,
+    MessagesComponent,
+    MemberCardComponent,
+    MemberDetailComponent
+  ],
+  imports: [SharedModule, MemberListRoutingModule]
 })
 export class MemberListModule {}
