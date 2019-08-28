@@ -34,7 +34,7 @@ export class ErrorInterceptor implements HttpInterceptor {
             console.log(serverError);
             for (const key in serverError) {
               if (serverError[key]) {
-                console.log('test', serverError[key]);
+                console.log('test111', serverError[key]);
                 modalStateError += serverError[key] + '\n';
               }
             }

@@ -24,8 +24,13 @@ export class UserService {
   }
 
   getuser(id: number): Observable<User> {
-    return this.httpClient.get<User>(this.baseUrl + 'users/' + id).pipe(
-     tap(data => console.log(data))
-    );
+    console.log('users');
+    return this.httpClient
+      .get<User>(this.baseUrl + 'users/' + id)
+      .pipe(tap(data => console.log(data)));
+  }
+
+  updateUser(id: number, user: User) {
+    return this.httpClient.put(this.baseUrl + 'users/' + id, user);
   }
 }

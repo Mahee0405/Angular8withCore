@@ -13,6 +13,12 @@ import {
   HammerGestureConfig,
   HAMMER_GESTURE_CONFIG
 } from '@angular/platform-browser';
+import { MembersEditComponent } from './members-edit/members-edit.component';
+import { MemberDetailResolver } from '../_resolver/member-details.resolver';
+import { MemberListResolver } from '../_resolver/member-list.resolver';
+import { MemberEditResolver } from '../_resolver/member-edit.resolve';
+import { PreventUnsavedChanges } from '../_guard/prevent-unsaved-changed.guard';
+
 
 export class CustomHammerConfig extends HammerGestureConfig {
   overrides = {
@@ -27,7 +33,8 @@ export class CustomHammerConfig extends HammerGestureConfig {
     ListComponent,
     MessagesComponent,
     MemberCardComponent,
-    MemberDetailComponent
+    MemberDetailComponent,
+    MembersEditComponent
   ],
   imports: [
     SharedModule,
@@ -35,6 +42,11 @@ export class CustomHammerConfig extends HammerGestureConfig {
     TabsModule.forRoot(),
     NgxGalleryModule
   ],
-  providers: [{ provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig }]
+  providers: [{ provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig },
+    MemberDetailResolver,
+    MemberListResolver,
+    MemberEditResolver,
+    PreventUnsavedChanges
+  ]
 })
 export class MemberListModule {}

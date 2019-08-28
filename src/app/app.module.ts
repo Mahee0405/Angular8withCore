@@ -16,8 +16,7 @@ import { ErrorInterceptorProvider } from './_services/error-interceptor.service'
 import { AlertifyService } from './_services/alertyfy.service';
 import { AuthGuard } from './_guard/auth.guard';
 import { UserService } from './_services/user.service';
-import { MemberDetailResolver } from './_resolver/member-details.resolver';
-import { MemberListResolver } from './_resolver/member-list.resolver';
+
 
 
 
@@ -50,8 +49,7 @@ import { MemberListResolver } from './_resolver/member-list.resolver';
     AlertifyService,
     AuthGuard,
     UserService,
-    MemberDetailResolver,
-    MemberListResolver,
+    
   ],
   bootstrap: [AppComponent]
 })
