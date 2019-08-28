@@ -5,10 +5,21 @@ import { MemberListComponent } from './member-list/member-list.component';
 import { SharedModule } from '../shared/shared.module';
 import { ListComponent } from './list/list.component';
 import { MessagesComponent } from './messages/messages.component';
-import { UserService } from '../_services/user.service';
 import { MemberCardComponent } from './member-card/member-card.component';
 import { MemberDetailComponent } from './member-detail/member-detail.component';
-import { JwtModule } from '@auth0/angular-jwt';
+import { TabsModule } from 'ngx-bootstrap';
+import { NgxGalleryModule } from 'ngx-gallery';
+import {
+  HammerGestureConfig,
+  HAMMER_GESTURE_CONFIG
+} from '@angular/platform-browser';
+
+export class CustomHammerConfig extends HammerGestureConfig {
+  overrides = {
+    pinch: { enable: false },
+    rotate: { enable: false }
+  };
+}
 
 @NgModule({
   declarations: [
@@ -18,6 +29,12 @@ import { JwtModule } from '@auth0/angular-jwt';
     MemberCardComponent,
     MemberDetailComponent
   ],
-  imports: [SharedModule, MemberListRoutingModule]
+  imports: [
+    SharedModule,
+    MemberListRoutingModule,
+    TabsModule.forRoot(),
+    NgxGalleryModule
+  ],
+  providers: [{ provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig }]
 })
 export class MemberListModule {}

@@ -3,6 +3,7 @@ import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../_models/user';
+import { tap } from 'rxjs/operators';
 
 const httpOption = {
   headers: new HttpHeaders({
@@ -23,6 +24,8 @@ export class UserService {
   }
 
   getuser(id: number): Observable<User> {
-    return this.httpClient.get<User>(this.baseUrl + 'users/' + id);
+    return this.httpClient.get<User>(this.baseUrl + 'users/' + id).pipe(
+     tap(data => console.log(data))
+    );
   }
 }

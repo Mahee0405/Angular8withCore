@@ -5,14 +5,16 @@ import { MessagesComponent } from './messages/messages.component';
 import { ListComponent } from './list/list.component';
 import { AuthGuard } from '../_guard/auth.guard';
 import { MemberDetailComponent } from './member-detail/member-detail.component';
+import { MemberDetailResolver } from '../_resolver/member-details.resolver';
+import { MemberListResolver } from '../_resolver/member-list.resolver';
 
 
 const routes: Routes = [
   {
-    path: 'members' , component: MemberListComponent ,
+    path: 'members' , component: MemberListComponent , resolve: { users: MemberListResolver}
   },
   {
-    path: 'members/:id' , component: MemberDetailComponent
+    path: 'members/:id' , component: MemberDetailComponent, resolve: {user: MemberDetailResolver}
   },
   {
     path: 'messages' , component: MessagesComponent
